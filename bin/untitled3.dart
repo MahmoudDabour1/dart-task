@@ -9,7 +9,7 @@ void area() {
   print(area);
 }
 
-void fileName() {
+void fileNameExtension() {
   stdout.write("Enter The FileName :\n");
   String filename = stdin.readLineSync()!;
   List<String> n = filename.split(".") ;
@@ -19,14 +19,13 @@ void fileName() {
 void difference (){
   stdout.write("Enter Number :\n");
   int x =int.parse(stdin.readLineSync()!);
-  int y = x-23;
-  if(y>23)
+  if(x>23)
   {
-    print(y*2);
+    print((x-23)*2);
   }
   else
   {
-    print(y.abs());
+    print(23-x);
   }
 
 }
@@ -68,53 +67,57 @@ void vowelChar() {
 
 }
 
+void backWord(){
+  stdout.write("Enter a Long String :");
+  String words = stdin.readLineSync()!;
+  List<String> splited = words.split(' ');
+  Iterable<String>reverse = splited.reversed;
+  print(reverse);
+}
+
 void removeWhitespaces(){
   stdout.write("Enter Word :\n");
   String word=stdin.readLineSync()!;
-  print(word.trim());
+  print(word.replaceAll(" ", ""));
 }
 
 void randomNumber()
 {
-  String x=generateRandom();
+  int? x=generateRandom();
   int status=0;
-  if(x=="null")
-  {
-    print(status);
-  }
-  else
+  if(x==100)
   {
     status=100;
-    print(status);
   }
-
+  print(status);
 }
 
-generateRandom(){
-  var random = Random();
+int? generateRandom(){
+  Random random = Random();
   bool x = random.nextBool();
-  String y;
+  int? num;
 
   if(x==true)
   {
-    y="100";
+    num=100;
   }
   else
   {
-    y="null";
+    num=null;
   }
-  return y;
+  return num;
 }
 
 
 
 void main() {
   area();
-  fileName();
+  fileNameExtension();
   difference();
   primeNumber();
   listOfColor();
   vowelChar();
+  backWord();
   removeWhitespaces();
   randomNumber();
 
